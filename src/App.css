@@ -2,8 +2,6 @@
 
 .App {
   text-align: center;
-  background-color: rgb(35, 39, 45);
-  font-family: Fira Code;
 }
 
 .App-logo {
@@ -41,18 +39,90 @@
 }
 
 .App-title {
-  font-weight: 100;
   margin-bottom: 0;
 }
 
 .App-sub-title {
-  font-weight: 100;
   margin: 0 0 1em 0;
   color: #696a6f;
 }
 
+.App-sub-sub-title {
+  margin: 0 0 0 0;
+  color: gray;
+  text-align: left;
+}
+
 .App-intro {
   margin: 1.15em 0 0 0;
-  font-size: large;
+  text-align: center;
+}
+
+
+.bio-links {
+  font-size: 1em;
+  display: inline;
+  margin-left: 20px;
+}
+
+.bio-links a {
+  color: white;
+}
+
+.bullet-heading {
+  margin: 1em 0 0 0;
+  color: gray;
+  text-align: left;
+}
+
+.bullet-info {
+  margin: 0.7em 0 0 0.85em;
+  text-align: left;
+}
+
+.bullet-highlights1 {
+  margin: 0em 1.5em 0 0;
+}
+
+.bullet-highlights1 a {
+  color: #ff8f00;
+  text-decoration: none;
+}
+
+.bullet-highlights2 {
+  margin: 0em 1.5em 0 0;
+}
+
+.bullet-highlights3 {
+  color: #40c4ff;
+  margin: 0em 1.5em 0 0;
+}
+
+.bullet-description {
+  font-size: 1.25em;
+  margin: 0.5em 0 2em 0;
   text-align: justify;
 }
+
+.current-org {
+  color: #ff8f00;
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+li:hover .bullet-description {
+  display: block;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+

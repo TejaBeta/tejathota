@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body{
+  background-color: rgb(35, 39, 45);
+  color: white;
+  font-family: "Fira Code";
+  font-size: 1em;
+  justify-content: center;
+  max-width: 750px;
+  padding: 0 20px 0 20px;
+  margin: auto;
+}
