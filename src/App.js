@@ -95,7 +95,7 @@ class App extends Component {
       this.state.externalLinks &&
       this.state.externalLinks.map(e => (
         <p className='bio-links'>
-          <a href={`${e.url}`} target='_blank'>{`${e.title}`}</a>
+          <a rel="noreferrer"href={`${e.url}`} target='_blank'>{`${e.title}`}</a>
         </p>
       ));
     const languages =
@@ -115,7 +115,7 @@ class App extends Component {
       ));
 
     const currentOrganisation = this.state.currentOrganisation && (
-      <a
+      <a rel="noreferrer"
         className='current-org'
         href={`${this.state.currentOrganisation.url}`}
         target='_blank'
@@ -141,7 +141,7 @@ class App extends Component {
       this.state.projectInfo.map(p => (
         <li className='bullet-info'>
           <span className='bullet-highlights1'>
-            <a href={`${p.url}`} target='_blank'>{`${p.title}`}</a>
+            <a rel="noreferrer" href={`${p.url}`} target='_blank'>{`${p.title}`}</a>
           </span>
         </li>
       ));
