@@ -39,3 +39,20 @@
     transform: rotate(360deg);
   }
 }
+
+.App-title {
+  font-weight: 100;
+  margin-bottom: 0;
+}
+
+.App-sub-title {
+  font-weight: 100;
+  margin: 0 0 1em 0;
+  color: #696a6f;
+}
+
+.App-intro {
+  margin: 1.15em 0 0 0;
+  font-size: large;
+  text-align: justify;
+}
