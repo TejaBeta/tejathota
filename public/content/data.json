@@ -21,7 +21,7 @@
       "company": "Transforming Systems",
       "Type": "Job",
       "Description": "As a polyglot developer, I help the organisation to co-design and develop many real-time systems and services to NHS partners. Currently, the development provides intelligence systems based on real-time data for 26 CCGs across England, covering multiple providers including primary care, acute hospitals, 111, ambulance services, secondary care, etc. Technologies involved in the project development are Spring Boot, Angular, Mongo, MySQL, NodeJS, Mobile application development, Devops etc.",
-      "title": "Polyglot Developer"
+      "title": "Senior Programmer"
     },
     {
       "time": "Mar, 2015",
@@ -61,38 +61,40 @@
   ],
   "projectInfo": [
     {
+      "url": "https://github.com/hayorov/helm-gcs",
+      "title": "helm-gcs"
+    },
+    {
       "url": "https://github.com/TejaBeta/kubectl-istiolog",
-      "title": "kubectl-istiolog a tiny kubectl plugin to manipulate istio-proxy logging level without istioctl."
+      "title": "kubectl-istiolog"
     },
     {
       "url": "https://github.com/TejaBeta/release-stats",
-      "title": "release-stats a tiny module to check github release stats."
+      "title": "release-stats"
     },
     {
       "url": "https://github.com/TejaBeta/kubectl-ttl",
-      "title": "kubectl-ttl is a kubectl plugin to add time to live option to Kubernetes resources."
+      "title": "kubectl-ttl"
     },
     {
       "url": "https://github.com/TejaBeta/kopy",
-      "title": "Kopy is a kubectl plugin to copy resources from one context to another."
+      "title": "Kopy"
     }
   ],
 
   "techStack": {
     "languages": [
       "GoLang",
-      "Shellscript",
-      "Python",
-      "TypeScript"
+      "Shell Script",
+      "Python"
     ],
     "technologies": [
       "Kubernetes",
-      "Docker",
       "Terraform",
       "Ansible",
+      "Puppet",
       "GCP",
       "AWS",
-      "Azure",
       "OpenStack"
     ]
   }

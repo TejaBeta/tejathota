@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 
-const externalLinksURL =
-  'https://raw.githubusercontent.com/TejaBeta/tejabeta-2.0/master/src/content/external.json';
-const dataLinkURL =
-  'https://raw.githubusercontent.com/TejaBeta/tejabeta-2.0/master/src/content/data.json';
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -13,6 +8,7 @@ class App extends Component {
       showCareer: false,
       showProjects: false,
       showStack: false,
+      showLanguages: false,
       externalLinks: [],
       currentOrganisation: null,
 
@@ -35,7 +31,7 @@ class App extends Component {
 
 
   getExternalLinks() {
-    fetch(externalLinksURL)
+    fetch('./content/external.json')
       .then(response => response.json())
       .then(data =>
         this.setState({
@@ -44,18 +40,15 @@ class App extends Component {
           role: data.currentOrganisation.role
         })
       )
-      .catch(error => console.error('Something went wrong!'));
+      .catch(error => console.error('Something went wrong!', error));
   }
 
   getDataInfo() {
-    fetch(dataLinkURL)
+    fetch('./content/data.json')
       .then(response => { 
-        console.log('I am here')
         return response.json();
       })
       .then(data => {
-        console.log('I am here')
-
         this.setState({
           intro: data.intro,
           end: data.end,
@@ -73,16 +66,25 @@ class App extends Component {
         this.setState({ showCareer: !this.state.showCareer });
         this.state.showProjects && this.setState({ showProjects: false });
         this.state.showStack && this.setState({ showStack: false });
+        this.state.showLanguages && this.setState({ showLanguages: false });
         break;
       case 1:
         this.setState({ showProjects: !this.state.showProjects });
         this.state.showCareer && this.setState({ showCareer: false });
         this.state.showStack && this.setState({ showStack: false });
+        this.state.showLanguages && this.setState({ showLanguages: false });
         break;
       case 2:
+        this.setState({ showLanguages: !this.state.showLanguages });
+        this.state.showCareer && this.setState({ showCareer: false });
+        this.state.showProjects && this.setState({ showProjects: false });
+        this.state.showStack && this.setState({ showStack: false });
+        break;
+      case 3:
         this.setState({ showStack: !this.state.showStack });
         this.state.showCareer && this.setState({ showCareer: false });
         this.state.showProjects && this.setState({ showProjects: false });
+        this.state.showLanguages && this.setState({ showLanguages: false });
         break;
       default:
         break;
@@ -96,9 +98,17 @@ class App extends Component {
           <a href={`${e.url}`} target='_blank'>{`${e.title}`}</a>
         </p>
       ));
-    const technologies =
+    const languages =
       this.state.techStack &&
       this.state.techStack.languages.map(t => (
+        <li className='bullet-info'>
+          <span className='bullet-highlights1'>{`${t}`}</span>
+        </li>
+      ));
+
+    const technologies =
+      this.state.techStack &&
+      this.state.techStack.technologies.map(t => (
         <li className='bullet-info'>
           <span className='bullet-highlights1'>{`${t}`}</span>
         </li>
@@ -167,7 +177,7 @@ class App extends Component {
                 this.handleOnClick(1);
               }}
             >
-              [{this.state.showProjects ? '-' : '+'}] Projects
+              [{this.state.showProjects ? '-' : '+'}] Open Source Contributions
             </h3>
             {this.state.showProjects && projectInfo}
           </div>
@@ -178,7 +188,18 @@ class App extends Component {
                 this.handleOnClick(2);
               }}
             >
-              [{this.state.showStack ? '-' : '+'}] Languages
+              [{this.state.showLanguages ? '-' : '+'}] Languages
+            </h3>
+            {this.state.showLanguages && languages}
+          </div>
+          <div>
+            <h3
+              className='bullet-heading'
+              onClick={() => {
+                this.handleOnClick(3);
+              }}
+            >
+              [{this.state.showStack ? '-' : '+'}] Technologies
             </h3>
             {this.state.showStack && technologies}
           </div>
