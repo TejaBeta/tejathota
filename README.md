@@ -1,8 +1,20 @@
-# Getting Started with Create React App
+# TejaThota [![build](https://github.com/TejaBeta/tejathota/actions/workflows/build.yml/badge.svg)](https://github.com/TejaBeta/tejathota/actions/workflows/build.yml)
+
+Portfolio for https://tejathota.dev
+
+### Data
+
+Please refer to [content](/public/content/) dir for all the data.
+
+### Build 
+
+Application is built using `github actions`. Pushes to `gcr` and runs on `cloudrun`.
+
+### Default configurations of a react app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
