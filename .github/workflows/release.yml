@@ -14,10 +14,24 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: google-github-actions/setup-gcloud@master
-      - uses: RafikFarhad/push-to-gcr-github-action@v4
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v1.1.0
         with:
-          gcloud_service_key: ${{ secrets.GCP_SA_BM_KEY }}
-          registry: eu.gcr.io
-          project_id: binarymonster
-          image_name: tejathota
+          # Username used to log in to a Docker registry. If not set then no login will occur
+          username: _json_key
+          # Password or personal access token used to log in to a Docker registry. If not set then no login will occur
+          password: ${{ secrets.GCP_SA_BM_KEY }}
+          # Server address of Docker registry. If not set then will default to Docker Hub
+          registry: gcr.io
+          # Docker repository to tag the image with
+          repository: ${{ secrets.GOOGLE_PROJECT_ID }}/tejathota
+          # Comma-delimited list of tags. These will be added to the registry/repository to form the image's tags
+          tags: latest
+          # Automatically tags the built image with the git reference as per the readme
+          tag_with_ref: true
+          # Automatically tags the built image with the git short SHA as per the readme
+          tag_with_sha: true
+          # Comma-delimited list of labels to add to the built image
+          labels: github-action-build
+          # Whether to push the image
+          push: true
