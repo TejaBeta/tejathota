@@ -45,5 +45,5 @@ jobs:
       - id: 'deploy'
         uses: 'google-github-actions/deploy-cloudrun@v0'
         with:
-          service: '{{ secrets.TEJATHOTA_CLOUDRUN_SERVICE }}'
+          service: 'tejabeta-cloud-run-service'
           image: 'eu.gcr.io/${{ secrets.GOOGLE_PROJECT_ID }}/tejathota:latest'
