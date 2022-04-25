@@ -47,4 +47,4 @@ jobs:
         with:
           service: 'tejabeta-cloud-run-service'
           image: 'eu.gcr.io/${{ secrets.GOOGLE_PROJECT_ID }}/tejathota:latest'
-          region: 'europe-west4'
+          region: '${{ env.REGION }}'
