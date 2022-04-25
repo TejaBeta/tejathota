@@ -31,7 +31,7 @@ class App extends Component {
 
 
   getExternalLinks() {
-    fetch('./content/external.json')
+    fetch('https://raw.githubusercontent.com/TejaBeta/content/master/external.json')
       .then(response => response.json())
       .then(data =>
         this.setState({
@@ -44,7 +44,7 @@ class App extends Component {
   }
 
   getDataInfo() {
-    fetch('./content/data.json')
+    fetch('https://raw.githubusercontent.com/TejaBeta/content/master/data.json')
       .then(response => { 
         return response.json();
       })
