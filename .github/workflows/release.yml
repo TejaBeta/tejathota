@@ -14,6 +14,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          credentials_json: '${{ secrets.GCP_SA_BM_KEY }}'
+
       - name: Build and push Docker images
         uses: docker/build-push-action@v1.1.0
         with:
@@ -22,7 +27,7 @@ jobs:
           # Password or personal access token used to log in to a Docker registry. If not set then no login will occur
           password: ${{ secrets.GCP_SA_BM_KEY }}
           # Server address of Docker registry. If not set then will default to Docker Hub
-          registry: gcr.io
+          registry: eu.gcr.io
           # Docker repository to tag the image with
           repository: ${{ secrets.GOOGLE_PROJECT_ID }}/tejathota
           # Comma-delimited list of tags. These will be added to the registry/repository to form the image's tags
@@ -35,3 +40,10 @@ jobs:
           labels: github-action-build
           # Whether to push the image
           push: true
+
+
+      - id: 'deploy'
+        uses: 'google-github-actions/deploy-cloudrun@v0'
+        with:
+          service: '{{ secrets.TEJATHOTA_CLOUDRUN_SERVICE }}'
+          image: 'eu.gcr.io/${{ secrets.GOOGLE_PROJECT_ID }}/tejathota:latest'
