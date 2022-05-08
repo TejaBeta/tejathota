@@ -20,7 +20,7 @@ jobs:
           credentials_json: '${{ secrets.GCP_SA_BM_KEY }}'
 
       - name: Build and push Docker images
-        uses: docker/build-push-action@v1.1.0
+        uses: docker/build-push-action@v1.1.2
         with:
           # Username used to log in to a Docker registry. If not set then no login will occur
           username: _json_key
